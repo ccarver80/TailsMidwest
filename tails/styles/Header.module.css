@@ -1,0 +1,7 @@
+.header {
+    @apply flex bg-blue-400 h-52
+}
+
+.logo {
+    @apply mx-auto my-auto
+}
