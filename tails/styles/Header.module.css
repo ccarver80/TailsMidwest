@@ -1,7 +1,13 @@
 .header {
-    @apply flex bg-blue-400 h-52
+    @apply flex h-52
 }
 
 .logo {
-    @apply mx-auto my-auto
+    @apply flex
+
 }
+
+.image {
+    @apply object-contain scale-75
+}
+
