@@ -19,7 +19,7 @@
 }
 
 .home__aboutUs p {
-  @apply text-xl font-serif
+  @apply text-xl text-center font-serif
 }
 
 

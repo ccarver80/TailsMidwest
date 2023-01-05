@@ -17,7 +17,7 @@ export const NavBar = () => {
               <a>About</a>
             </li>
             <li>
-              <a>Foster or Adobt</a>
+              <a>Foster or Adopt</a>
             </li>
             <li>
               <a>Adoptable Animals</a>
@@ -45,7 +45,7 @@ export const NavBar = () => {
       </div>
       <div className={styles.navBar__desktop}>
         <button>About</button>
-        <button>Foster or Adobt</button>
+        <button>Foster or Adopt</button>
         <button>Adoptable Animals</button>
         <button>Surrender Form</button>
         <button>Donations</button>
