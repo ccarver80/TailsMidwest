@@ -1,0 +1,26 @@
+.home__header {
+  @apply flex flex-col lg:grid lg:grid-cols-2 p-5
+}
+
+.home__catDogLogo {
+  @apply my-auto
+}
+
+.home__logo {
+  @apply scale-50
+}
+
+.home__aboutUs {
+  @apply flex flex-col my-auto gap-10
+}
+
+.home__aboutUs h2 {
+  @apply text-pink-600 text-2xl mx-auto
+}
+
+.home__aboutUs p {
+  @apply text-xl font-serif
+}
+
+
+  
