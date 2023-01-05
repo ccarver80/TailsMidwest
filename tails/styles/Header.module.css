@@ -1,13 +1,8 @@
 .header {
-    @apply flex h-52
+    @apply flex justify-between w-3/4 mx-auto h-52
 }
 
-.logo {
-    @apply flex
-
-}
-
-.image {
+.header__image {
     @apply object-contain scale-75
 }
 
