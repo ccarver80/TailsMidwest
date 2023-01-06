@@ -1,0 +1,15 @@
+.foster {
+  @apply flex flex-col h-screen;
+}
+
+.foster__buttonContainer {
+  @apply flex justify-between w-1/4 mx-auto my-auto;
+}
+
+.foster__buttonContainer h1 {
+  @apply my-auto text-2xl;
+}
+
+.foster__buttonContainer button {
+  @apply p-5 text-white bg-pink-500 rounded-xl hover:bg-white hover:text-black;
+}
