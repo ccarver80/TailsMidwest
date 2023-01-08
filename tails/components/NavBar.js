@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "../styles/NavBar.module.css";
 
 export const NavBar = () => {
@@ -6,18 +7,20 @@ export const NavBar = () => {
     <div className={styles.navBar}>
       <div className={styles.navBar__mobile}>
         <div className="dropdown dropdown-bottom">
-          <label tabIndex={0} className="btn btn-secondary m-1">
+          <label tabIndex={0} className="m-1 btn btn-secondary">
             Menu
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            className="p-2 shadow dropdown-content menu bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>About</a>
+              <Link href="/">
+                <button>About</button>
+              </Link>
             </li>
             <li>
-              <a>Foster or Adopt</a>
+              <Link href="/apply">Foster or Adopt</Link>
             </li>
             <li>
               <a>Adoptable Animals</a>
@@ -44,15 +47,33 @@ export const NavBar = () => {
         </div>
       </div>
       <div className={styles.navBar__desktop}>
-        <button>About</button>
-        <button>Foster or Adopt</button>
-        <button>Adoptable Animals</button>
-        <button>Surrender Form</button>
-        <button>Donations</button>
-        <button>Swag</button>
-        <button>Events</button>
-        <button>Partners</button>
-        <button>Contact Us</button>
+        <Link href="/">
+          <button>About</button>
+        </Link>
+        <Link href="/apply">
+          <button>Foster or Adopt</button>
+        </Link>
+        <Link href="">
+          <button>Adoptable Animals</button>
+        </Link>
+        <Link href="">
+          <button>Surrender Form</button>
+        </Link>
+        <Link href="">
+          <button>Donations</button>
+        </Link>
+        <Link href="">
+          <button>Swag</button>
+        </Link>
+        <Link href="">
+          <button>Events</button>
+        </Link>
+        <Link href="">
+          <button>Partners</button>
+        </Link>
+        <Link href="">
+          <button>Contact Us</button>
+        </Link>
       </div>
     </div>
   );

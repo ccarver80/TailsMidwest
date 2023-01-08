@@ -1,0 +1,19 @@
+.foster {
+  @apply flex flex-col;
+}
+
+.foster__main {
+  @apply flex flex-col;
+}
+
+.foster__buttonContainer {
+  @apply flex flex-col items-center w-3/4 mx-auto my-auto mt-10 h-96 lg:flex-row;
+}
+
+.foster__logo {
+  @apply scale-50;
+}
+
+.foster__buttonContainer button {
+  @apply p-5 text-2xl text-white bg-pink-500 rounded-xl hover:bg-white hover:text-black;
+}

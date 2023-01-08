@@ -1,15 +1,23 @@
 .foster {
-  @apply flex flex-col h-screen;
+  @apply flex flex-col;
 }
 
-.foster__buttonContainer {
-  @apply flex justify-between w-1/4 mx-auto my-auto;
+.foster__header {
+  @apply flex flex-col mx-auto mt-10;
 }
 
-.foster__buttonContainer h1 {
-  @apply my-auto text-2xl;
+.foster__header h1 {
+  @apply mx-auto mt-10 text-8xl;
 }
 
-.foster__buttonContainer button {
-  @apply p-5 text-white bg-pink-500 rounded-xl hover:bg-white hover:text-black;
+.foster__description {
+  @apply flex flex-col mx-auto mt-10 text-3xl text-pink-500;
+}
+
+.foster__description ul {
+  @apply mt-10;
+}
+
+.foster__description li {
+  @apply mt-2 text-xl text-black;
 }
