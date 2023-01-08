@@ -1,0 +1,23 @@
+.foster {
+  @apply flex flex-col;
+}
+
+.foster__header {
+  @apply flex flex-col mx-auto mt-10;
+}
+
+.foster__header h1 {
+  @apply mx-auto mt-10 text-8xl;
+}
+
+.foster__description {
+  @apply flex flex-col mx-auto mt-10 text-3xl text-pink-500;
+}
+
+.foster__description ul {
+  @apply mt-10;
+}
+
+.foster__description li {
+  @apply mt-2 text-xl text-black;
+}
