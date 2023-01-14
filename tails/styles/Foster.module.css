@@ -21,3 +21,7 @@
 .foster__description li {
   @apply mt-2 text-xl text-black;
 }
+
+.foster__form {
+  @apply grid w-1/2 grid-cols-2 gap-5 mx-auto mt-5;
+}
