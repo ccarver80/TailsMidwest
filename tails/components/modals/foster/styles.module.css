@@ -1,5 +1,5 @@
 .foster {
-  @apply flex flex-col;
+  @apply p-2 bg-white lg:p-10;
 }
 
 .foster__header {
@@ -7,7 +7,7 @@
 }
 
 .foster__header h1 {
-  @apply mx-auto mt-10 text-8xl;
+  @apply mx-auto mt-10 text-4xl lg:text-8xl;
 }
 
 .foster__description {
@@ -23,5 +23,9 @@
 }
 
 .foster__form {
-  @apply grid w-1/2 grid-cols-2 gap-5 mx-auto mt-5;
+  @apply grid grid-cols-2 gap-5 mx-auto mt-5 lg:w-1/2;
+}
+
+.foster__form h3 {
+  @apply mx-auto text-4xl text-pink-500;
 }

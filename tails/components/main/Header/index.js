@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../public/imgs/Logo.png";
-import styles from "../styles/Header.module.css";
-import { NavBar } from "./NavBar";
+import logo from "../../../public/imgs/Logo.png";
+import { NavBar } from "../NavBar";
+import styles from "./Header.module.css";
 
 export const Header = () => {
   return (

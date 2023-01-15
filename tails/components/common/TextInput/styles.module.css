@@ -3,5 +3,5 @@
 }
 
 .TextInput input {
-  @apply h-10 bg-gray-200 border border-black selection:border-red-500 selection:bg-white;
+  @apply h-10 px-2 bg-gray-200 border border-black selection:border-red-500 selection:bg-white;
 }
