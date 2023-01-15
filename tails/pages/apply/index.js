@@ -5,12 +5,11 @@ import styles from "./styles.module.css";
 import { AdoptModal } from "../../components/modals/adopt";
 import { FosterModal } from "../../components/modals/foster";
 
-export default function adoptMain() {
+export default function Apply() {
   const [adoptModal, setAdoptModal] = useState(false);
   const [fosterModal, setFosterModal] = useState(false);
   return (
     <>
-      <AdoptModal />
       <div className={styles.adoptMain}>
         <Header />
 
