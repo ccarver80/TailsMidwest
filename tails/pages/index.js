@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Header, NavBar } from "../components";
+import { Header, NavBar } from "../components/main";
 import { Inter } from "@next/font/google";
 import catDog from "../public/imgs/cat_dog.png";
 import logoText from "../public/imgs/logoText.png";
-import styles from "../styles/Home.module.css";
+import styles from "./styles.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

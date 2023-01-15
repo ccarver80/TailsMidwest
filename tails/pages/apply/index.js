@@ -1,27 +1,38 @@
-import React from "react";
-import Link from "next/link";
-import { Header } from "../../components";
-import styles from "../../styles/Apply.module.css";
-import Logo from "../../components/Logo";
+import React, { useState } from "react";
+import { Header } from "../../components/main";
+import Logo from "../../components/main/Logo";
+import styles from "./styles.module.css";
+import { AdoptModal } from "../../components/modals/adopt";
+import { FosterModal } from "../../components/modals/foster";
 
-export default function Foster() {
+export default function adoptMain() {
+  const [adoptModal, setAdoptModal] = useState(false);
+  const [fosterModal, setFosterModal] = useState(false);
   return (
     <>
-      <div className={styles.foster}>
+      <AdoptModal />
+      <div className={styles.adoptMain}>
         <Header />
 
-        <div className={styles.foster__buttonContainer}>
-          <Link href="/apply/adopt">
-            <button>Adopt</button>
-          </Link>
-          <div className={styles.foster__logo}>
+        <div className={styles.adoptMain__buttonContainer}>
+          <button onClick={() => setAdoptModal(true)}>Adopt</button>
+          <div className={styles.adoptMain__logo}>
             <Logo />
+            <button className="mx-auto mt-10 scale-150 w-fit">Surrender</button>
           </div>
 
-          <Link href="/apply/foster">
-            <button>Foster</button>
-          </Link>
+          <button onClick={() => setFosterModal(true)}>Foster</button>
         </div>
+
+        <AdoptModal
+          isOpen={adoptModal}
+          closeModal={() => setAdoptModal(false)}
+        />
+
+        <FosterModal
+          isOpen={fosterModal}
+          closeModal={() => setFosterModal(false)}
+        />
       </div>
     </>
   );
