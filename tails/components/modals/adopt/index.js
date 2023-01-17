@@ -2,9 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Modal } from "../../common/Modal";
 import Image from "next/image";
-
+import { Select } from "../../common/Select";
 import TextInput from "../../common/TextInput";
 import logo from "../../../public/imgs/logoText.png";
+import { states } from "../../constants";
+import { numbers } from "../../constants";
 import styles from "./styles.module.css";
 
 export function AdoptModal({ isOpen, closeModal }) {
@@ -12,6 +14,9 @@ export function AdoptModal({ isOpen, closeModal }) {
   const onSubmit = (data) => {
     console.log(data);
   };
+
+  console.log(states);
+
   return (
     <Modal maxWidth="1200px" isModalOpen={isOpen} closeModal={closeModal}>
       <>
@@ -30,7 +35,7 @@ export function AdoptModal({ isOpen, closeModal }) {
               <li>* Be at least 21-years of age</li>
               <li>
                 * Be willing and able to spend the time and money necessary to
-                care for a new pet. Including but tnot limited to medical
+                care for a new pet. Including but not limited to medical
                 treatment, nourishment, care and training
               </li>
               <li>* Have consent from a landlord if applicable</li>
@@ -87,11 +92,11 @@ export function AdoptModal({ isOpen, closeModal }) {
                 name="city"
                 placeholder="Bismarck"
               />
-              <TextInput
-                lable="State/Province"
+              <Select
+                label="State/Province"
                 register={register}
+                options={states}
                 name="state"
-                placeholder="North Dakota"
               />
 
               <TextInput
@@ -152,6 +157,22 @@ export function AdoptModal({ isOpen, closeModal }) {
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 />
               </div>
+
+              <Select
+                options={states}
+                register={register}
+                label="Please Pick"
+              />
+
+              <div className="col-span-2">
+                <Select
+                  options={numbers}
+                  register={register}
+                  label="How many people reside in your home?"
+                />
+              </div>
+
+              <button type="submit">sub</button>
             </div>
           </form>
         </div>
