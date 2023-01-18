@@ -4,6 +4,8 @@ import { Modal } from "../../common/Modal";
 import Image from "next/image";
 import { Select } from "../../common/Select";
 import TextInput from "../../common/TextInput";
+import { TextArea } from "../../common/TextArea";
+import Radio from "../../common/Radio";
 import logo from "../../../public/imgs/logoText.png";
 import { states } from "../../constants";
 import { numbers } from "../../constants";
@@ -14,8 +16,6 @@ export function AdoptModal({ isOpen, closeModal }) {
   const onSubmit = (data) => {
     console.log(data);
   };
-
-  console.log(states);
 
   return (
     <Modal maxWidth="1200px" isModalOpen={isOpen} closeModal={closeModal}>
@@ -157,21 +157,129 @@ export function AdoptModal({ isOpen, closeModal }) {
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 />
               </div>
+              {/* ========================================================================================================================== */}
+              <div className="flex flex-col col-span-2 gap-y-5">
+                <Select
+                  options={states}
+                  register={register}
+                  label="What is the name of the animal you would like to adopt?"
+                  name="selected_animal"
+                />
 
-              <Select
-                options={states}
-                register={register}
-                label="Please Pick"
-              />
-
-              <div className="col-span-2">
                 <Select
                   options={numbers}
                   register={register}
                   label="How many people reside in your home?"
+                  name="residents"
+                />
+
+                <Select
+                  options={numbers}
+                  register={register}
+                  label="How many residents are OVER 21 years old"
+                  name="residents_21Over"
+                />
+
+                <Select
+                  options={numbers}
+                  register={register}
+                  label="How many residents are UNDER 21 years old"
+                  name="residents_21Under"
+                />
+
+                <TextArea
+                  rows="2"
+                  register={register}
+                  name="children_count"
+                  label="What are the ages of the children in the household? "
+                  placeholder="6, 3, and 4 months old"
+                />
+
+                <h4 className="mx-auto mb-2 text-1xl">
+                  What type of home do you live in?
+                </h4>
+                <div className="flex flex-row">
+                  <Radio
+                    register={register}
+                    name="type_of_home"
+                    value="house"
+                    lable="House"
+                  />
+                  <Radio
+                    register={register}
+                    name="type_of_home"
+                    value="apartment"
+                    lable="Apartment"
+                  />
+
+                  <Radio
+                    register={register}
+                    name="type_of_home"
+                    value="condo"
+                    lable="Condo"
+                  />
+                  <Radio
+                    register={register}
+                    name="type_of_home"
+                    value="twin-home"
+                    lable="Twin Home"
+                  />
+                </div>
+
+                <Select
+                  options={[
+                    { name: "Yes", value: "yes" },
+                    { name: "No", value: "no" },
+                  ]}
+                  register={register}
+                  name="home_yard"
+                  label="Does your home have a yard?"
+                />
+
+                <TextArea
+                  label="If yes, please tell us the material and height of the fence."
+                  register={register}
+                  name="fence"
+                  placeholder="Wooden picket fence 6 feet high"
+                />
+
+                <Select
+                  options={[
+                    { name: "Own", value: "own" },
+                    { name: "Lease", value: "lease" },
+                    { name: "Rent", value: "rent" },
+                  ]}
+                  register={register}
+                  name="ownOrLease"
+                  label="Do you?"
+                />
+
+                <TextArea
+                  rows="2"
+                  placeholder="Greg Johnson, 701-222-3456, Cottonwood Apartments"
+                  register={register}
+                  label="If you are renting, please provide your landlord's name and phone number"
+                  name="landlord_info"
+                />
+
+                {/* ========================================================================================================== */}
+
+                <TextArea
+                  rows="5"
+                  label="Please list all current pets owned"
+                  register={register}
+                  placeholder="Include type of animal, breed (if know), age, gender, and if they were spayed/neutered: "
+                  name="current_pets"
+                />
+
+                <TextArea
+                  rows="3"
+                  label=" If applicable, who is your current veterinarian and their phone number: "
+                  register={register}
+                  placeholder="Joe at High Plains vet, 701-222-1234"
+                  name="current_vet"
                 />
               </div>
-
               <button type="submit">sub</button>
             </div>
           </form>
