@@ -1,4 +1,4 @@
-export default function adopt(req, res) {
+export default function Adopt(req, res) {
   console.log(req.body);
   let nodemailer = require("nodemailer");
 
