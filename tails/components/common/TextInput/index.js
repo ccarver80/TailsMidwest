@@ -11,7 +11,7 @@ export default function TextInput({
 }) {
   return (
     <div className={styles.TextInput}>
-      <lable>{lable}</lable>
+      <label>{lable}</label>
       <input
         {...register(`${name}`)}
         type={type}
