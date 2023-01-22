@@ -10,11 +10,20 @@ import logo from "../../../public/imgs/logoText.png";
 import { states } from "../../constants";
 import { numbers } from "../../constants";
 import styles from "./styles.module.css";
+import CheckBox from "../../common/CheckBox";
 
 export function AdoptModal({ isOpen, closeModal }) {
   const { handleSubmit, register } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    fetch("/api/adopt", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
@@ -158,6 +167,8 @@ export function AdoptModal({ isOpen, closeModal }) {
                 />
               </div>
               {/* ========================================================================================================================== */}
+
+              <h3 className="col-span-2 mt-5">General Questions</h3>
               <div className="flex flex-col col-span-2 gap-y-5">
                 <Select
                   options={states}
@@ -279,8 +290,169 @@ export function AdoptModal({ isOpen, closeModal }) {
                   placeholder="Joe at High Plains vet, 701-222-1234"
                   name="current_vet"
                 />
+                <h4>
+                  For what reason(s) would you consider giving up your pet(s)
+                </h4>
+                <CheckBox
+                  register={register}
+                  label="Moving"
+                  value="Moving"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Medical Issues"
+                  value="Medical Issues"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Chewing"
+                  value="Chewing"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Divorce"
+                  value="Divorce"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="New Baby"
+                  value="New Baby"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Allergies"
+                  value="Allergies"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Housebreaking Issues"
+                  value="Housebreaking Issues"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Animal becomes too large"
+                  value="Animal becomes too large"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Financial Hardship"
+                  value="Financial Hardship"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Behavioral Issues"
+                  value="Behavioral Issues"
+                  name="giving_up_pet"
+                />
+                <CheckBox
+                  register={register}
+                  label="Other"
+                  value="Other"
+                  name="giving_up_pet"
+                />
+
+                <TextArea
+                  label="If other, please explain"
+                  register={register}
+                  rows="4"
+                  name="other_reasons"
+                />
+
+                <TextInput
+                  register={register}
+                  lable="Where will this pet be kept when you aren't at home"
+                  name="not_home"
+                  placeholder="In a kennel in the mud room"
+                />
+
+                <TextInput
+                  register={register}
+                  lable="Where will the animal sleep at night?"
+                  name="animal_sleep"
+                  placeholder="In a dog bed in our bedroom"
+                />
+
+                <Select
+                  register={register}
+                  label="How many hours (on average) will the animal be left alone?"
+                  name="hours_alone"
+                  options={numbers}
+                />
+
+                <TextArea
+                  name="about_you"
+                  label="Tell us more about you!"
+                  register={register}
+                  rows="5"
+                  placeholder="We have 3 kids who all love animals, we love to go to the river and camp...."
+                />
+
+                {/* ============================================================================================================= */}
               </div>
-              <button type="submit">sub</button>
+
+              <h3 className="col-span-2 ">References</h3>
+              <h4 className="col-span-2">Referance #1</h4>
+              <TextInput
+                lable="First Name"
+                name="ref1_first_name"
+                register={register}
+              />
+
+              <TextInput
+                lable="Last Name"
+                name="ref1_last_name"
+                register={register}
+              />
+
+              <div className="col-span-2">
+                <TextInput
+                  lable="Referance Phone:"
+                  register={register}
+                  name="ref1_phone"
+                  placeholder="111-222-3456"
+                  type="tel"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                />
+              </div>
+              <h4 className="col-span-2 mt-2">Referance #2</h4>
+              <TextInput
+                lable="First Name"
+                name="ref2_first_name"
+                register={register}
+              />
+
+              <TextInput
+                lable="Last Name"
+                name="ref2_last_name"
+                register={register}
+              />
+
+              <div className="col-span-2">
+                <TextInput
+                  lable="Referance Phone:"
+                  register={register}
+                  name="ref2_phone"
+                  placeholder="111-222-3456"
+                  type="tel"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                />
+              </div>
+
+              <button
+                className="p-5 text-white bg-pink-500 w-fit rounded-xl"
+                type="submit"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>

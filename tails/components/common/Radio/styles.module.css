@@ -3,5 +3,5 @@
 }
 
 .Radio input {
-  @apply mx-auto scale-125 accent-slate-500;
+  @apply mx-auto scale-125 accent-pink-500;
 }
