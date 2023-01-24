@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import ClipLoader from "react-spinners/ClipLoader";
 import { useForm } from "react-hook-form";
 import { Modal } from "../../common/Modal";
 import Image from "next/image";
@@ -11,18 +13,34 @@ import { states } from "../../constants";
 import { numbers } from "../../constants";
 import styles from "./styles.module.css";
 import CheckBox from "../../common/CheckBox";
+import "react-toastify/dist/ReactToastify.css";
 
 export function AdoptModal({ isOpen, closeModal }) {
-  const { handleSubmit, register } = useForm();
-  const onSubmit = (data) => {
-    fetch("/api/adopt", {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+    toast("Please wait", { autoClose: 2000 });
+    await fetch("/api/adopt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     }).then((res) => {
-      console.log(res);
+      if (res.status === 201) {
+        toast.success("Your form was submitted");
+        setIsLoading(false);
+        closeModal();
+      } else {
+        setIsLoading(false);
+        toast("Something went wrong. Please try again");
+      }
     });
   };
 
@@ -59,6 +77,8 @@ export function AdoptModal({ isOpen, closeModal }) {
                 register={register}
                 name="first_name"
                 placeholder="Bob"
+                errors={{ errors }}
+                required
               />
 
               <TextInput
@@ -66,6 +86,7 @@ export function AdoptModal({ isOpen, closeModal }) {
                 register={register}
                 name="last_name"
                 placeholder="Smith"
+                required
               />
               <div className="col-span-2 ">
                 <TextInput
@@ -74,6 +95,7 @@ export function AdoptModal({ isOpen, closeModal }) {
                   name="email"
                   type="email"
                   placeholder="bob_smith@email.com"
+                  required
                 />
               </div>
 
@@ -83,6 +105,7 @@ export function AdoptModal({ isOpen, closeModal }) {
                   register={register}
                   name="address_1"
                   placeholder="123 Apple St"
+                  required
                 />
               </div>
 
@@ -100,12 +123,14 @@ export function AdoptModal({ isOpen, closeModal }) {
                 register={register}
                 name="city"
                 placeholder="Bismarck"
+                required
               />
               <Select
                 label="State/Province"
                 register={register}
                 options={states}
                 name="state"
+                required
               />
 
               <TextInput
@@ -113,6 +138,7 @@ export function AdoptModal({ isOpen, closeModal }) {
                 register={register}
                 name="zip_code"
                 placeholder="58504"
+                required
               />
 
               <TextInput
@@ -120,6 +146,7 @@ export function AdoptModal({ isOpen, closeModal }) {
                 register={register}
                 name="country"
                 placeholder="United States"
+                required
               />
 
               <div className="col-span-2">
@@ -130,6 +157,7 @@ export function AdoptModal({ isOpen, closeModal }) {
                   placeholder="111-222-3456"
                   type="tel"
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  required
                 />
               </div>
               <h3 className="col-span-2">Co Applicant Info:</h3>
@@ -447,12 +475,16 @@ export function AdoptModal({ isOpen, closeModal }) {
                 />
               </div>
 
-              <button
-                className="p-5 text-white bg-pink-500 w-fit rounded-xl"
-                type="submit"
-              >
-                Submit
-              </button>
+              {isLoading ? (
+                <ClipLoader />
+              ) : (
+                <button
+                  className="p-5 text-white bg-pink-500 w-fit rounded-xl"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              )}
             </div>
           </form>
         </div>

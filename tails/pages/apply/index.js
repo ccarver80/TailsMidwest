@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer } from "react-toastify";
 import { Header } from "../../components/main";
 import Logo from "../../components/main/Logo";
 import styles from "./styles.module.css";
@@ -31,6 +32,18 @@ export default function Apply() {
         <FosterModal
           isOpen={fosterModal}
           closeModal={() => setFosterModal(false)}
+        />
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
         />
       </div>
     </>

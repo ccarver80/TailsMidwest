@@ -1,22 +1,24 @@
-export default function handler(req, res) {
-  console.log(req.body);
+export default async function (req, res) {
   let nodemailer = require("nodemailer");
 
-  const transporter = nodemailer.createTransport({
-    port: 587,
-    host: "smtp.office365.com",
-    auth: {
-      user: "chrisCarverTest@outlook.com",
-      pass: "Zumiez1990!!",
-    },
-    secure: false,
-  });
+  let testAccount = await nodemailer.createTestAccount();
 
-  const mailData = {
-    from: "chrisCarverTest@outlook.com",
-    to: "melissa.langer@outlook.com",
-    subject: "NEW ADOPT FORM",
-    html: `<div>
+  try {
+    const transporter = nodemailer.createTransport({
+      port: 587,
+      host: "smtp.office365.com",
+      auth: {
+        user: "chriscarvertest@outlook.com",
+        pass: "",
+      },
+      secure: false,
+    });
+
+    await transporter.sendMail({
+      from: "chrisCarverTest@outlook.com",
+      to: "ckc_80@outlook.com",
+      subject: "NEW ADOPT FORM",
+      html: `<div>
         <h1>New Adopt Form:</h1>
         <br>
         <h2>Applicant</h2>
@@ -65,10 +67,10 @@ export default function handler(req, res) {
         <p><b>Referance #2 Last Name: </b>${req.body.ref2_last_name}</p>
         <p><b>Referance #2 Phone: </b>${req.body.ref2_phone}</p>
     </div>`,
-  };
+    });
 
-  transporter.sendMail(mailData, function (err, info) {
-    if (err) console.log(err);
-    else res.status(200);
-  });
+    res.status(201).json({ message: `Sent sucsessful` });
+  } catch (err) {
+    res.status(500).json({ message: `Error on server, ${err}` });
+  }
 }

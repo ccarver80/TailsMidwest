@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ToastContainer } from "react-toastify";
 import { Header, NavBar } from "../components/main";
 import { Inter } from "@next/font/google";
 import catDog from "../public/imgs/cat_dog.png";
@@ -29,6 +30,7 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </div>
   );

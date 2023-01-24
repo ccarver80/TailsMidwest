@@ -8,15 +8,17 @@ export default function TextInput({
   type,
   placeholder,
   pattern,
+  required,
 }) {
   return (
     <div className={styles.TextInput}>
       <label>{lable}</label>
       <input
-        {...register(`${name}`)}
+        {...register(name)}
         type={type}
         placeholder={placeholder}
         pattern={pattern}
+        required={required}
       />
     </div>
   );
