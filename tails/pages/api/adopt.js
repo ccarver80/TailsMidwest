@@ -1,4 +1,6 @@
 export default async function (req, res) {
+  require("dotenv").config();
+  console.log(process.env.EMAIL);
   let nodemailer = require("nodemailer");
 
   let testAccount = await nodemailer.createTestAccount();
@@ -8,8 +10,8 @@ export default async function (req, res) {
       port: 587,
       host: "smtp.office365.com",
       auth: {
-        user: "chriscarvertest@outlook.com",
-        pass: "",
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
       },
       secure: false,
     });
