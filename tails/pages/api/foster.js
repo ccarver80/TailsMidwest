@@ -10,15 +10,15 @@ export default async function (req, res) {
       port: 587,
       host: "smtp.office365.com",
       auth: {
-        user: testAccount.user,
-        pass: testAccount.pass,
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
       },
       secure: false,
     });
 
     await transporter.sendMail({
       from: "chrisCarverTest@outlook.com",
-      to: "ckc_80@outlook.com",
+      to: "melissa.langer@outlook.com",
       subject: "NEW FOSTER FORM",
       html: `<div>
           <h1>New Adopt Form:</h1>
