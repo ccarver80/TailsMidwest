@@ -20,28 +20,44 @@ export const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/apply">Foster or Adopt</Link>
+              <Link href="/apply">
+                <button>Foster or Adopt</button>
+              </Link>
             </li>
             <li>
-              <a>Adoptable Animals</a>
+              <Link href="">
+                <button>Adoptable Animals</button>
+              </Link>
             </li>
             <li>
-              <a>Surrender Form</a>
+              <Link href="">
+                <button>Surrender Form</button>
+              </Link>
             </li>
             <li>
-              <a>Donations</a>
+              <Link href="">
+                <button>Donations</button>
+              </Link>
             </li>
             <li>
-              <a>Swag +</a>
+              <Link href="">
+                <button>Swag</button>
+              </Link>
             </li>
             <li>
-              <a>Events</a>
+              <Link href="">
+                <button>Events</button>
+              </Link>
             </li>
             <li>
-              <a>Partners</a>
+              <Link href="">
+                <button>Partners</button>
+              </Link>
             </li>
             <li>
-              <a>Contact Us</a>
+              <Link href="">
+                <button>Contact Us</button>
+              </Link>
             </li>
           </ul>
         </div>

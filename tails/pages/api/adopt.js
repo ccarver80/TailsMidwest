@@ -1,6 +1,6 @@
 export default async function (req, res) {
   require("dotenv").config();
-  console.log(process.env.EMAIL);
+
   let nodemailer = require("nodemailer");
 
   let testAccount = await nodemailer.createTestAccount();

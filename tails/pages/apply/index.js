@@ -18,7 +18,7 @@ export default function Apply() {
           <button onClick={() => setAdoptModal(true)}>Adopt</button>
           <div className={styles.adoptMain__logo}>
             <Logo />
-            <button className="mx-auto mt-10 scale-150 w-fit">Surrender</button>
+            {/* <button className="mx-auto mt-10 scale-150 w-fit">Surrender</button> */}
           </div>
 
           <button onClick={() => setFosterModal(true)}>Foster</button>

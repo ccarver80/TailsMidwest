@@ -23,6 +23,7 @@ export function AdoptModal({ isOpen, closeModal }) {
     register,
     formState: { errors },
   } = useForm();
+
   const onSubmit = async (data) => {
     setIsLoading(true);
     toast("Please wait", { autoClose: 2000 });
