@@ -160,12 +160,15 @@ export function FosterModal({ isOpen, closeModal }) {
               name="city"
               placeholder="Bismarck"
             />
-            <TextInput
-              lable="State/Province"
-              register={register}
-              name="state"
-              placeholder="North Dakota"
-            />
+            <div className="col-span-2">
+              <Select
+                label="State/Province"
+                register={register}
+                options={states}
+                name="state"
+                required
+              />
+            </div>
 
             <TextInput
               lable="Zip Code"

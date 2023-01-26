@@ -126,13 +126,15 @@ export function AdoptModal({ isOpen, closeModal }) {
                 placeholder="Bismarck"
                 required
               />
-              <Select
-                label="State/Province"
-                register={register}
-                options={states}
-                name="state"
-                required
-              />
+              <div className="col-span-2">
+                <Select
+                  label="State/Province"
+                  register={register}
+                  options={states}
+                  name="state"
+                  required
+                />
+              </div>
 
               <TextInput
                 lable="Zip Code"
