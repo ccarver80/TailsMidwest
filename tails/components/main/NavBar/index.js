@@ -25,7 +25,7 @@ export const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link href="">
+              <Link href="/adopt">
                 <button>Adoptable Animals</button>
               </Link>
             </li>
@@ -69,7 +69,7 @@ export const NavBar = () => {
         <Link href="/apply">
           <button>Foster or Adopt</button>
         </Link>
-        <Link href="">
+        <Link href="/adopt">
           <button>Adoptable Animals</button>
         </Link>
         <Link href="">
