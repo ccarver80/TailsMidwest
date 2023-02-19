@@ -16,7 +16,7 @@ export default function Admin() {
     const getData = () => {
       fetch("/api/admin")
         .then((res) => res.json())
-        .then((dataa) => setData(dataa));
+        .then((dataa) => setData(dataa.data));
     };
     getData();
   }, []);
