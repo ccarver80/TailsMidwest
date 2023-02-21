@@ -1,19 +1,17 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { DataStore } from "@aws-amplify/datastore";
+import { Post } from "../../src/models";
 
 export default async (req, res) => {
   if (req.method === "POST") {
-    const post = await prisma.post.create({
-      data: {
+    await DataStore.save(
+      new Post({
         title: req.body.Title,
-        content: req.body.Description,
-      },
-    });
-
+        description: req.body.Description,
+      })
+    );
     res.status(201).json({ message: "posted sucsesfully" });
   } else {
-    const data = await prisma.post.findMany();
+    const data = await DataStore.query(Post);
     res.status(200).json(data);
   }
 };
