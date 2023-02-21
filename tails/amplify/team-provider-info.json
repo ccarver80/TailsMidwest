@@ -10,6 +10,14 @@
       "StackName": "amplify-tails2-staging-182133",
       "StackId": "arn:aws:cloudformation:us-east-1:945356219142:stack/amplify-tails2-staging-182133/91d5ee80-b214-11ed-8037-0a223df9116b",
       "AmplifyAppId": "d39lroxndl2tzz"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d39lroxndl2tzz",
+          "type": "cicd"
+        }
+      }
     }
   }
 }
