@@ -1,24 +1,19 @@
-import { API } from "aws-amplify";
-import { createPost } from "../../src/graphql/mutations";
+import { DataStore } from "@aws-amplify/datastore";
+import { TestPost } from "../../src/models";
 
 export default async (req, res) => {
   if (req.method === "POST") {
-    const newPost = await API.graphql({
-      query: createPost,
-      variables: {
-        input: {
-          title: req.body.Title,
-          description: req.body.Description,
-        },
-      },
-    });
+    await DataStore.save(
+      new TestPost({
+        title: req.body.Title,
+        description: req.body.Description,
+      })
+    );
     res.status(201).json({ message: "posted sucsesfully" });
   } else {
     // List all items
-    const allPosts = await API.graphql({
-      query: listPosts,
-    });
+    const models = await DataStore.query(TestPost);
 
-    res.status(200).json(allPosts);
+    res.status(200).json(models);
   }
 };

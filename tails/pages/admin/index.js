@@ -30,7 +30,6 @@ export default function Admin() {
       body: JSON.stringify(data),
     });
   };
-  console.log(data);
   return (
     <div className={styles.admin}>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">

@@ -1,4 +1,4 @@
-type Post @model @auth(rules: [{allow: public}]) {
+type TestPost @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String
   description: String

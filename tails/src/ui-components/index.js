@@ -5,5 +5,5 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
-export { default as PostCreateForm } from "./PostCreateForm";
-export { default as PostUpdateForm } from "./PostUpdateForm";
+export { default as TestPostCreateForm } from "./TestPostCreateForm";
+export { default as TestPostUpdateForm } from "./TestPostUpdateForm";
