@@ -1,5 +1,5 @@
 {
-  "AppSyncApiName": "TailsMidwesttails",
+  "AppSyncApiName": "tails",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false
 }
